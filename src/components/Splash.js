@@ -33,7 +33,7 @@ export default class Splash extends Component {
 
   handleSubmit(e) {
 		e.preventDefault();
-		const url = "http://localhost:8000/add";
+		const url = "http://speakupforunity_api.herokuapp.com/add";
     const { name, email } = this.state.inputData;
 		// Perform request
 		axios.post(url, {
