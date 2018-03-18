@@ -21,8 +21,8 @@ class App extends Component {
             return(
               <div>
                 <Splash {...props} />
-                <Message {...props} />
                 <Counter {...props} />
+                <Message {...props} />
                 <Body {...props} />
                 <Footer {...props} />
               </div>
