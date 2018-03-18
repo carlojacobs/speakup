@@ -1,0 +1,18 @@
+.counterDiv {
+  padding: 8rem 12rem;
+  background: #95a5a6;
+  background-image: url(../assets/balloons.jpg);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position-y: bottom;
+  color: #ecf0f1;
+}
+
+.counterH1 {
+  font-size: 64px;
+}
+
+.counterH3 {
+  color: #ecf0f1;
+  font-size: 33px;
+}

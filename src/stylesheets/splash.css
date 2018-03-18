@@ -1,0 +1,51 @@
+/* Fonts
+font-family: 'Fredoka One', cursive;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Roboto Slab', serif;
+*/
+
+.splash {
+  /* background-color: #2c3e50; */
+  background-image: url('../assets/boks.jpg');
+  padding: 8rem 12rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  background-size: cover;
+  background-color: #34495e;
+  background-blend-mode: multiply;
+  /* text-shadow: 2px 2px 2px gray; */
+}
+
+.splashH1 {
+  color: #ecf0f1;
+  font-size: 64px;
+  font-family: 'Fredoka One', cursive;
+}
+
+.splashH3 {
+  color: #ecf0f1;
+  font-size: 33px;
+  /* padding: 1rem; */
+  /* border: 2px solid white; */
+  margin-bottom: 3rem;
+}
+
+#button {
+  background: #3498db;
+  color: #ecf0f1;
+  border: none;
+  font-size: 30px;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#button:hover {
+  background: #2f82b9;
+}
+
+#submitButton {
+  background: #3498db;
+  border: none;
+}
