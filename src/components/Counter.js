@@ -15,7 +15,7 @@ export default class Counter extends Component {
   }
 
   getNum() {
-    axios.get('http://speakupforunity-api.com/num').then((res) => {
+    axios.get('https://speakupforunity-api.com/num').then((res) => {
       const number = res.data.num;
       this.setState({
         ...this.state,
