@@ -16,7 +16,9 @@ export default class Splash extends Component {
       inputData: {
         name: null,
         email: null
-      }
+			},
+			emailIsValid: true,
+			nameIsValid: true
     }
     // Bind methods
     this.handleChange = this.handleChange.bind(this);
@@ -34,19 +36,31 @@ export default class Splash extends Component {
   handleSubmit(e) {
 		e.preventDefault();
 		const url = "https://speakupforunity-api.herokuapp.com/add";
-    const { name, email } = this.state.inputData;
-		// Perform request
-		axios.post(url, {
-			email: email,
-			name: name
-		}).then((res) => {
-      const message = res.data.message;
-      const success = res.data.success;
-      if (success) {
-        this.props.history.push('/share');
-      }
-      console.log(message);
-		});
+		const { name, email } = this.state.inputData;
+		if (name == "") {
+			this.setState({
+				...this.state,
+				nameIsValid: false
+			});
+		} else {
+			// Perform request
+			axios.post(url, {
+				email: email,
+				name: name
+			}).then((res) => {
+				const message = res.data.message;
+				const success = res.data.success;
+				if (success) {
+					this.props.history.push('/share/' + name);
+				} else {
+					this.setState({
+						...this.state,
+						emailIsValid: false
+					});
+				}
+				console.log(message);
+			});
+		}
 	}
 
   handleChange(e) {
@@ -62,8 +76,9 @@ export default class Splash extends Component {
       }
 		});
   }
-
+  //<Input onChange={this.handleChange} type="email" name="email" placeholder="Email" />
   render() {
+		var emailInputClass = this.state.emailIsValid ? "form-control" : "form-control is-invalid";
     const modal = (
       <Modal isOpen={this.state.showModal} toggle={this.toggleModal}>
         <ModalHeader toggle={this.toggleModal}>Speak up.</ModalHeader>
@@ -71,11 +86,14 @@ export default class Splash extends Component {
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>
               <Label>Name</Label>
-              <Input onChange={this.handleChange} type="text" name="name" placeholder="Full Name" />
+							<input type="text" name="name" placeholder="Full Name" onChange={this.handleChange} className="form-control" required/>
             </FormGroup>
             <FormGroup>
               <Label>Email</Label>
-              <Input onChange={this.handleChange} type="email" name="email" placeholder="Email" />
+              <input name="email" type="text" onChange={this.handleChange} className={emailInputClass} placeholder="Email" required/>
+              <div class="invalid-feedback">
+                This email has already been used.
+              </div>
             </FormGroup>
             <Button id="submitButton">Submit</Button>
           </Form>
