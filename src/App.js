@@ -28,7 +28,7 @@ class App extends Component {
               </div>
             );
           }}/>
-          <Route path="/share" exact component={Share}/>
+          <Route path="/share/:name" component={Share}/>
         </div>
       </Router>
     );
