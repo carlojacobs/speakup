@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Share from './components/Share';
 
 class App extends Component {
+
   render() {
     return (
       <Router>

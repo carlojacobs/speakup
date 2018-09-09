@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
-
-// css
-import '../stylesheets/splash.css';
 
 export default class Splash extends Component {
 
@@ -37,7 +31,7 @@ export default class Splash extends Component {
 		e.preventDefault();
 		const url = "https://speakupforunity-api.herokuapp.com/add";
 		const { name, email } = this.state.inputData;
-		if (name == "") {
+		if (name === "") {
 			this.setState({
 				...this.state,
 				nameIsValid: false
@@ -76,39 +70,58 @@ export default class Splash extends Component {
       }
 		});
   }
-  //<Input onChange={this.handleChange} type="email" name="email" placeholder="Email" />
+
   render() {
 		var emailInputClass = this.state.emailIsValid ? "form-control" : "form-control is-invalid";
-    const modal = (
-      <Modal isOpen={this.state.showModal} toggle={this.toggleModal}>
-        <ModalHeader toggle={this.toggleModal}>Speak up.</ModalHeader>
-        <ModalBody>
-          <Form onSubmit={this.handleSubmit}>
-            <FormGroup>
-              <Label>Name</Label>
-							<input type="text" name="name" placeholder="Full Name" onChange={this.handleChange} className="form-control" required/>
-            </FormGroup>
-            <FormGroup>
-              <Label>Email</Label>
-              <input name="email" type="text" onChange={this.handleChange} className={emailInputClass} placeholder="Email" required/>
-              <div class="invalid-feedback">
-                This email has already been used.
-              </div>
-            </FormGroup>
-            <Button id="submitButton">Submit</Button>
-          </Form>
-        </ModalBody>
-        <ModalFooter>
-          <Button color="secondary" onClick={this.toggleModal}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
+
+    const form = (
+      <form onSubmit={this.handleSubmit}>
+        <div class="form-group">
+          <label>Name</label>
+          <input onChange={this.handleChange} type="text" name="name" className="form-control" placeholder="Name" required/>
+        </div>
+        <div className="form-group">
+          <label>Email</label>
+          <input onChange={this.handleChange} type="text" name="email" className={"form-control " + emailInputClass} placeholder="Email" required/>
+          <div class="invalid-feedback">
+            This email has already been used.
+          </div>
+          <small className="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </form>
     );
 
-    return(
-      <div className="splash">
-        <h1 className="splashH1">Speak up for unity.</h1>
-        <h3 className="splashH3">The world is full of good, together we can help make it stand out.</h3>
-        <button id="button" onClick={this.toggleModal}>Speak up and share!</button>
+    const modal = (
+      <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Speak up!</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              {form}
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+
+    return (
+      <div>
+        <div className="jumbotron splash-jumbo">
+          <div className="container">
+            <h1 className="speakupH1">Speak up for unity.</h1>
+            <h3 className="speakupH3">The world is full of good, together we can help make it stand out.</h3>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">Speak up and share!</button>
+          </div>
+        </div>
         {modal}
       </div>
     );

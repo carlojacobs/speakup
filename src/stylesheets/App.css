@@ -1,3 +1,158 @@
-/* body {
-  background-color: #2980b9;  
-} */
+/* Variables */
+:root {
+  --countercolor: #39A9DB;
+  --bodycolor: #EE7674;
+}
+
+/* general */
+.jumbotron {
+  margin-bottom: 0 !IMPORTANT;
+  border-radius: 0 !IMPORTANT;
+}
+
+.speakupH1 {
+  font-family: 'Fredoka One', cursive;
+  color: white;
+}
+
+.speakupH3 {
+  color: #ecf0f1;
+}
+
+/* Body */
+.body {
+  background: var(--bodycolor);
+  width: 100%;
+}
+
+#lightsImage {
+  height: 300px;
+  width: 300px;
+  border-radius: 100%;
+  vertical-align: middle;
+}
+
+/* counter */
+
+.counterDiv{
+  background: var(--countercolor);
+  color: #ecf0f1;
+}
+
+.counterH1 {
+  font-size: 64px;
+}
+
+
+/* footer */
+footer {
+  /* background: #222; */
+  text-align: center;
+}
+footer .copyright-section {
+  /* background: #111; */
+  /* background: rgb(44, 62, 80);   */
+  background-color: #393E41;
+  padding: 30px 0;
+}
+/*footer .copyright-section .logo {
+max-width: 300px;
+margin: 0 auto;
+}*/
+footer .copyright-section .social-media {
+  margin-top: 40px;
+  font-size: 25px;
+}
+footer .copyright-section .social-media ul {
+  text-align: center;
+}
+footer .copyright-section .copyright {
+  margin-top: 30px;
+}
+footer .copyright-section .copyright p {
+  text-align: center;
+  /*color: #666;*/
+  /* color: #999; */
+  color: white;
+}
+footer .demo-logo{
+  margin: 1em;
+  padding: 0;
+  text-align: center;
+  font-size: 36px;
+  text-transform: uppercase;
+  /* color: #999; */
+  color: white;
+}
+
+#siteLink {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 26px;
+  /*text-transform: uppercase;*/
+  /* color: #999; */
+  color: white;
+  padding: 0.4rem 1rem;
+  background: #393E41;
+  border-radius: 8px;
+  border: 3px solid white;
+}
+
+.message {
+  background: #95a5a6;
+  background-image: url(../assets/hot.jpg);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position-y: bottom;
+  color: #ecf0f1;
+}
+
+#messageH1 {
+  color: #ecf0f1;
+  font-family: 'Fredoka One', cursive;
+}
+
+#messageP {
+  color: #ecf0f1;
+  font-size: 28px;
+  font-style: italic;
+}
+
+
+/* message */
+.share {
+  width: 100%;
+  height: 100vh;
+  color: #ecf0f1;
+  background-color: #2c3e50;
+  background-image: url(../assets/together.jpg);
+  background-blend-mode: multiply;
+  background-size: cover;
+}
+
+#shareH1 {
+  font-family: 'Fredoka One', cursive;
+}
+
+#shareH2 {
+  color: #bdc3c7;
+}
+
+#shareH3 {
+  font-style: italic;
+}
+
+/* splash */
+.splash-jumbo {
+  color: white;
+  background-image: url('../assets/boks.jpg');
+  font-family: 'Roboto Condensed', sans-serif;
+  background-size: cover;
+  background-color: #b2b2b2;
+  background-blend-mode: multiply;
+}
+
+.splashH1 {
+  font-family: 'Fredoka One', cursive;
+}

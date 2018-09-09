@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 
-// css
-import '../stylesheets/footer.css';
-
 export default class Footer extends Component {
   render() {
     return(
@@ -13,7 +10,7 @@ export default class Footer extends Component {
               <div className="col-sm-12">
                 <div className="logo">
                   <h2 className="demo-logo">Speak up</h2>
-                  <a id="siteLink" href="https://www.carlocode.nl">carlocode.nl</a>
+                  <a id="siteLink" href="http://www.carlojacobs.ga">carlojacobs.ga</a>
                 </div>
                 <div className="copyright">
                   <p>Copyright &copy; 2017. Carlo Jacobs.</p>
